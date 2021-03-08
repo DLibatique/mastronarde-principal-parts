@@ -7,7 +7,7 @@ verify_ssl = true
 
 [packages]
 cltk = "*"
-greek-accentuation = "*"
+greek-accentuation = "==1.2.0"
 
 [requires]
 python_version = "3.8"

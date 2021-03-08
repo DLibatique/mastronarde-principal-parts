@@ -119,17 +119,17 @@ for x in verbs:
 
 request = input("For what verb would you like the principal parts?: ")
 
-def strip_accents(word):
-    '''
-    remove breathings and accents from greek characters
-    input: string (greek word with accents)
-    output: string (greek word without accents)
-    '''
-
-    new_string = ''
-    for letter in word:
-        new_string += base(letter)
-    return new_string
+# def strip_accents(word):
+#     '''
+#     remove breathings and accents from greek characters
+#     input: string (greek word with accents)
+#     output: string (greek word without accents)
+#     '''
+#
+#     new_string = ''
+#     for letter in word:
+#         new_string += base(letter)
+#     return new_string
 
 def get_stripped_1st_pp(requested_verb):
     '''
@@ -144,7 +144,7 @@ def get_stripped_1st_pp(requested_verb):
         for letter in request:
             new_string += character_map[str(letter)]
     else:
-        new_string = strip_accents(requested_verb)
+        new_string = strip_breathing(strip_accents(requested_verb))
 
     return new_string
 
@@ -152,7 +152,7 @@ if get_stripped_1st_pp(request) not in stripped_1st_pps:
     print('verb not found!')
 else:
     for x in verbs:
-        if request == x[0] or get_stripped_1st_pp(request) == strip_accents(x[0]):
+        if request == x[0] or get_stripped_1st_pp(request) == strip_breathing(strip_accents(x[0])):
             print(x)
         else:
             pass
